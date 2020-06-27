@@ -1,0 +1,20 @@
+.StandardTable {
+   BACKGROUND: #FFFFFF;
+   border-spacing: 0px;
+}
+
+.YellowColor {
+   background-color: #FFFF00;
+}
+
+.GrayColor {
+   background-color: #D0D0D0;
+}
+
+.LightGrayColor {
+   background-color: #E0E0E0;
+}
+
+.WhiteColor {
+   background-color: #FFFFFF;
+}

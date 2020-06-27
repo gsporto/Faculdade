@@ -1,0 +1,113 @@
+<!DOCTYPE html> 
+<html> 
+<body bgcolor="F0F0F0"> 
+
+<table>
+<tr>
+<td>
+<div style="text-align:center"> 
+  <video id="video1" height="480" controls>
+    <source src="Java Flip.mp4" type="video/mp4">
+    <source src="Java Flip.ogg" type="video/ogg">
+	Your browser does not support HTML5 video.
+  </video>
+  <div id='media-controls'>
+  <button id='Rewind' onclick="rewind()"><img id="rewindImg" src="rewind16x16.png" align="top"></img></button>
+  <button id='PlayPause' onclick="playPause()"><img id="playImg" src="play16x16.png" align="top"></img></button> 
+  <progress id='progress-bar' min=0 max=100 value=0>0% played</progress>
+  <br>
+  <button id='Big' onclick="makeBig()">Big</button>
+  <button id='Small' onclick="makeSmall()">Small</button>
+  <button id='Normal' onclick="makeNormal()">Normal</button>
+  <button id='History' onclick="historyBack()">History</button>
+  </div>
+  <br>
+  <p>Video courtesy of <a href="http://www.youtube.com/?'Java Flip'" target="_blank">Java Flip</a>.</p>
+  </div>
+  <br>  
+</td>
+</table>
+
+<script>
+
+ns=false;
+if (navigator.userAgent.toLowerCase().indexOf("netscape")>=0)
+   ns=true;
+
+ie=false;
+if (navigator.userAgent.toLowerCase().indexOf("msie")>=0)
+   ie=true;
+
+op=false;
+if (navigator.userAgent.toLowerCase().indexOf("opera")>=0)
+   op=true;
+
+ff=false;
+if (navigator.userAgent.toLowerCase().indexOf("firefox")>=0)
+   ff=true;
+
+fx=false;
+if (navigator.userAgent.toLowerCase().indexOf("javafx")>=0)
+   fx=true;
+
+zz=false;
+if ((!ns) && (!ie) && (!ff) && (!op))
+   zz=true;
+
+document.addEventListener('DOMContentLoaded', function() {initMediaPlayer();}, false);
+var myVideo;
+var progressBar;
+
+function initMediaPlayer() {
+    myVideo = document.getElementById("video1");
+	myVideo.controls=false;
+    progressBar=document.getElementById('progress-bar');
+	myVideo.addEventListener('timeupdate', updateProgressBar, false);
+}
+
+function rewind() {
+    var Btn=document.getElementById('PlayPause');
+	
+	progressBar.value=0;
+    myVideo.currentTime=0; 
+	myVideo.pause();
+	Btn.innerHTML='<img id="playImg" src="play16x16.png" align="top"></img>';
+}
+
+function playPause() {
+    var Btn=document.getElementById('PlayPause');
+	
+    if (myVideo.paused) {
+	    Btn.innerHTML='<img id="pauseImg" src="pause16x16.png" align="top"></img>';
+        myVideo.play(); 
+    } else {
+        myVideo.pause(); 
+		Btn.innerHTML='<img id="playImg" src="play16x16.png" align="top"></img>';
+	}
+} 
+
+function makeBig() { 
+    myVideo.height = 600; 
+} 
+
+function makeSmall() { 
+    myVideo.height = 360; 
+} 
+
+function makeNormal() { 
+    myVideo.height = 480; 
+}
+
+function historyBack() { 
+    window.history.back();
+}
+
+function updateProgressBar() {
+    var perc=Math.floor((100/myVideo.duration)*myVideo.currentTime);
+	progressBar.value=perc;
+	progressBar.innerHTML=perc+'% played';
+}
+</script> 
+
+</body> 
+</html>

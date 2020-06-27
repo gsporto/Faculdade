@@ -1,0 +1,7 @@
+Para RMI chamar pyro4
+Abrir Anaconda Prompt como administrador
+digitar:
+
+python -m pip install --upgrade pip (Ok)
+python -m pip install pyro4
+

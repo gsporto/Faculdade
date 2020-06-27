@@ -1,0 +1,7 @@
+Para relatórios em Python
+Abrir Anaconda Prompt como administrador
+digitar:
+
+python -m pip install --upgrade pip (Ok)
+python -m pip install xhtml2pdf
+python -m pip install Django (para evento de substituição de arquivo por caminho absoluto)

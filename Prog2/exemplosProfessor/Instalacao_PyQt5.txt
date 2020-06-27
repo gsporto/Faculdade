@@ -1,0 +1,6 @@
+Abrir Anaconda Prompt como administrador
+digitar:
+
+python -m pip install --upgrade pip (Ok)
+conda install -c anaconda pyqt
+conda install -c anaconda pyqt

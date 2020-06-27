@@ -1,0 +1,7 @@
+Para renderizar html2 no windows, sem webkit
+Abrir Anaconda Prompt como administrador
+digitar:
+
+python -m pip install --upgrade pip (Ok)
+python -m pip install htmlviewer
+
